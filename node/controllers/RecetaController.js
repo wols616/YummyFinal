@@ -132,6 +132,20 @@ export const deleteIngrediente = async (req, res) => {
   }
 };
 
+//Eliminar todos los ingredientes
+export const deleteAllIngredientes = async (req, res) => {
+  try {
+    await RecetaIngredienteModel.destroy({
+      where: { receta_id: req.params.receta_id },
+    });
+    res.json({
+      message: "Ingredientes eliminados correctamente",
+    });
+  } catch (error) {
+    res.json({ message: "a" + error.message });
+  }
+};
+
 //CRUD PASOS
 
 //Obtener todos los pasos de una receta

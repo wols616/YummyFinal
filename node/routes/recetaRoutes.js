@@ -6,7 +6,8 @@ import {
   updateReceta,
   //deleteReceta,
   deleteRecetaCascade,
-  getAllRecetasBuscadas
+  getAllRecetasBuscadas,
+  deleteAllIngredientes
 } from "../controllers/RecetaController.js";
 
 const router = express.Router();
@@ -18,6 +19,7 @@ router.post("/", createReceta);
 router.put("/:id", updateReceta);
 //router.delete("/:id", deleteReceta);
 router.delete("/:receta_id", deleteRecetaCascade)
+router.delete("/ingrediente/:receta_id", deleteAllIngredientes)
 router.get("/busqueda/:nombre", getAllRecetasBuscadas)
 
 export default router;
